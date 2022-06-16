@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	c.Connect()
+	c.Connect(".env")
 }

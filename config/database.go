@@ -4,6 +4,8 @@ import (
 	"log"
 	"os"
 
+	e "eresto/entities"
+
 	"github.com/joho/godotenv"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
@@ -11,10 +13,10 @@ import (
 
 var Query *gorm.DB
 
-func Connect() error {
+func Connect(env_location string) error {
 	var err error
 
-	env := godotenv.Load("../.env")
+	env := godotenv.Load(env_location)
 	if env != nil {
 		log.Println("Error loading .env file")
 	}
@@ -23,6 +25,8 @@ func Connect() error {
 	if err != nil {
 		return err
 	}
+
+	Query.AutoMigrate(&e.Table{})
 
 	return nil
 }
