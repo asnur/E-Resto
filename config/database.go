@@ -26,7 +26,7 @@ func Connect(env_location string) error {
 		return err
 	}
 
-	Query.AutoMigrate(&e.Table{})
+	Query.AutoMigrate(&e.Table{}, &e.Order{}, &e.OrderDetail{}, &e.Menu{}, &e.Category{}, &e.Payement{})
 
 	return nil
 }
