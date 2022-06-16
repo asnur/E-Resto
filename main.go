@@ -1,7 +1,9 @@
 package main
 
-import "fmt"
+import (
+	c "eresto/config"
+)
 
 func main() {
-	fmt.Println("Hello World")
+	c.Connect()
 }
