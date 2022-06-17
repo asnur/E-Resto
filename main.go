@@ -1,9 +1,9 @@
 package main
 
 import (
-	c "eresto/config"
+	r "eresto/routes"
 )
 
 func main() {
-	c.Connect(".env")
+	r.Routes()
 }
