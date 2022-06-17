@@ -1,1 +1,3 @@
-{{template "component/header" .}} {{template "component/footer" .}}
+{{template "component/header" .}} {{ range .Data }}
+<h3>{{ .No_Meja }}</h3>
+{{ end }} {{template "component/footer" .}}
