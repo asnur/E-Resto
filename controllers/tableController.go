@@ -13,5 +13,8 @@ func GetTable(c *fiber.Ctx) error {
 	if err := conf.Query.Find(&table).Error; err != nil {
 		return err
 	}
-	return c.JSON(table)
+	return c.Render("index", fiber.Map{
+		"Data":  table,
+		"Title": "Meja",
+	})
 }
