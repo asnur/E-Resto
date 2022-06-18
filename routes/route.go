@@ -16,6 +16,7 @@ func Routes() {
 		Views: enggine,
 	})
 	app.Get("/", c.GetTable)
+	app.Get("/qrcode/:id_meja", c.GetQRCode)
 
 	log.Fatal(app.Listen(":3000"))
 }
