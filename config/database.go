@@ -20,7 +20,9 @@ func Connect(env_location string) error {
 	if env != nil {
 		log.Println("Error loading .env file")
 	}
-	Query, err = gorm.Open(mysql.Open(os.Getenv("DSN_MYSQL")), &gorm.Config{})
+	Query, err = gorm.Open(mysql.Open(os.Getenv("DSN_MYSQL")), &gorm.Config{
+		QueryFields: true,
+	})
 
 	if err != nil {
 		return err

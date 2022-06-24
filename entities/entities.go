@@ -27,9 +27,9 @@ type Order struct {
 	TableNo_Meja int   `gorm:"column:no_meja"`
 	Table        Table `gorm:"foreignkey:TableNo_Meja"`
 	Total_Price  int
-	PayementID   int      `gorm:"column:id_payement"`
-	Payement     Payement `gorm:"foreignkey:PayementID"`
-	Status       StatusOrders
+	PayementID   int           `gorm:"column:id_payement"`
+	Payement     Payement      `gorm:"foreignkey:PayementID"`
+	Status       StatusOrders  `sql:"type:status_orders"`
 	OrderDetails []OrderDetail `gorm:"foreignkey:OrderID"`
 }
 

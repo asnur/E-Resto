@@ -18,7 +18,7 @@ func GetQRCode(c *fiber.Ctx) error {
 		log.Println("Error loading .env file")
 	}
 	id_meja := c.Params("id_meja")
-	enc := CreateEncodeQR(os.Getenv("BASE_URL") + "/order/" + base64.RawStdEncoding.EncodeToString([]byte(id_meja)))
+	enc := CreateEncodeQR(os.Getenv("BASE_URL") + "/order/" + id_meja)
 
 	return c.Render("qrcode", fiber.Map{
 		"Data":  enc,
