@@ -46,3 +46,14 @@ func GetItem(id_menu int) (e.Menu, error) {
 	}
 	return menu, nil
 }
+
+func DeleteItem(id_menu int) []CartItem {
+	return append(cart[:id_menu], cart[id_menu+1:]...)
+}
+
+func DeleteCart(c *fiber.Ctx) error {
+	id_cart, _ := strconv.Atoi(c.FormValue("id_cart"))
+	cart = DeleteItem(id_cart)
+
+	return c.JSON(fiber.Map{"cart": cart})
+}

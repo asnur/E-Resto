@@ -56,6 +56,7 @@ type Menu struct {
 	Price      int
 	CategoryID int      `gorm:"column:id_category"`
 	Category   Category `gorm:"foreignkey:CategoryID"`
+	Foto       string
 }
 
 func (t *Menu) TableName() string {

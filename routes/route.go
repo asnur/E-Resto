@@ -20,6 +20,7 @@ func Routes() {
 	app.Get("/order/:id_meja", c.Order)
 	app.Get("/menu/:id_menu", c.ListMenu)
 	app.Post("/cart", c.Cart)
+	app.Delete("/cart", c.DeleteCart)
 	app.Static("/public", "./public")
 
 	log.Fatal(app.Listen(":3000"))
