@@ -81,12 +81,19 @@
           aria-label="Close"
         ></button>
       </div>
-      <div class="modal-body">
-        <div class="row" id="detail-checkout"></div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Bayar</button>
-      </div>
+      <form action="/checkout" method="POST">
+        <div class="modal-body">
+          <div class="row" id="detail-checkout"></div>
+          <select class="form-control mt-3" name="payment">
+            {{ range .Payement }}
+            <option value="{{ .ID }}">{{ .Name }}</option>
+            {{ end }}
+          </select>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Bayar</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>

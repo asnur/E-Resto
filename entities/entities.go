@@ -42,6 +42,8 @@ type OrderDetail struct {
 	ID       int   `gorm:"primary_key"`
 	OrderID  int   `gorm:"column:id_order"`
 	Order    Order `gorm:"foreignkey:OrderID"`
+	MenuID   int   `gorm:"column:id_menu"`
+	Menu     Menu  `gorm:"foreignkey:MenuID"`
 	Quantity int
 }
 

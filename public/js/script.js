@@ -34,9 +34,9 @@ const addCart = (id, qty) => {
             <b>Rp. ${total}</b>
         </div>
         `;
-
+      let total_price_element = `<input type="hidden" name="total" value="${total}">`;
       $("#cart").html(html);
-      $("#detail-checkout").html(html);
+      $("#detail-checkout").html(html + total_price_element);
       $("#checkout").show();
     },
   });
