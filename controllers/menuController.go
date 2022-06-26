@@ -7,13 +7,16 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
-func CategoryMenu(c *fiber.Ctx) error {
-	var category []e.Category
-	if err := conf.Query.Find(&category).Error; err != nil {
+func ListMenu(c *fiber.Ctx) error {
+	conf.Connect(".env")
+	var menu []e.Menu
+	id_menu := c.Params("id_menu")
+	if err := conf.Query.Where("id_category", id_menu).Find(&menu).Error; err != nil {
 		return err
 	}
-	return c.Render("category", fiber.Map{
-		"Title": "Category",
-		"Data":  category,
+
+	return c.Render("menu", fiber.Map{
+		"Title": "Menu",
+		"Menu":  menu,
 	})
 }

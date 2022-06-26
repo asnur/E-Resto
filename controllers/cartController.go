@@ -22,6 +22,7 @@ func Cart(c *fiber.Ctx) error {
 
 	//check index array
 	idx := slices.IndexFunc(cart, func(c CartItem) bool { return c.ID_Menu == id_menu })
+
 	if idx == -1 {
 		//append to cart
 		item, _ := GetItem(id_menu)

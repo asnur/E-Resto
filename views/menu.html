@@ -1,0 +1,23 @@
+{{template "component/header" .}}
+<div class="container p-5">
+  <h1 align="center" class="p-5">List Menu</h1>
+  <div class="row">
+    <div class="col-md-8">
+      <div class="row">
+        {{ range .Menu }}
+        <div class="col-md-4 mb-2">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">{{ .Name }}</h5>
+              <p class="card-text">
+                <small class="text-muted">{{ .Price }}</small>
+              </p>
+            </div>
+          </div>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</div>
+{{template "component/footer" .}}

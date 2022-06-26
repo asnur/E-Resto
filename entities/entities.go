@@ -66,6 +66,7 @@ func (t *Menu) TableName() string {
 type Category struct {
 	ID   int `gorm:"primary_key"`
 	Name string
+	Icon string
 }
 
 func (t *Category) TableName() string {

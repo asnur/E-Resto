@@ -1,3 +1,30 @@
 {{template "component/header" .}}
-<h3>{{ .No_Meja }}</h3>
+
+<div class="container p-5">
+  <div class="row">
+    <div class="col-md-12 mb-5 text-center">
+      <center>
+        <div class="card w-25">
+          <div class="card-body rounded-3 shadow-lg">
+            <h1>Nomor Meja</h1>
+            <h1>{{ .No_Meja }}</h1>
+          </div>
+        </div>
+      </center>
+    </div>
+    {{ range .Kateogri }}
+    <a href="/menu/{{ .ID }}" class="col-md-6 text-decoration-none text-light">
+      <div class="card">
+        <div
+          class="card-body rounded-3 shadow-lg text-center bg-success bg-gradient"
+        >
+          <img src="/public/img/{{ .Icon }}" class="w-50" />
+          <h2>{{ .Name }}</h2>
+        </div>
+      </div>
+    </a>
+    {{ end }}
+  </div>
+</div>
+
 {{template "component/footer" .}}
